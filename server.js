@@ -1,4 +1,4 @@
-const http = require('http');
+const https = require('https');
 
 // Importation de l'application app.js
 const app = require('./app');
@@ -37,7 +37,7 @@ const errorHandler = error => {
   }
 };
 
-const server = http.createServer(app);
+const server = https.createServer(app);
 
 server.on('error', errorHandler);
 server.on('listening', () => {

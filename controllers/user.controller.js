@@ -1,11 +1,6 @@
 const jwt = require('jsonwebtoken'); // Importation de jsonwebtoken pour création des TOKEN
 const bcrypt = require('bcrypt'); // Importation de bcrypt pour hashage du mdp
 const User = require('../models/user.model.js');
-var mongoMask = require('mongo-mask')
-
-
-
-
 
 //Permet aux utilisateurs de créer un compte
 exports.signup = (req, res, next) => {
@@ -22,14 +17,10 @@ exports.signup = (req, res, next) => {
             .then(hash => {
                 //on créer le nouvel utilisateur
                 const user = new User({
-                    email: mongoMask(req.body.email),
+                    email: req.body.email,
                     password: hash
                 });
                 console.log(user)
-                //?: ternaire true ou false 
-        
-                
-
                 //on l'enregistre dans la base de données
                 user.save()
                     .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
