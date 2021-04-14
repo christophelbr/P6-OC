@@ -13,6 +13,17 @@ const userRoutes = require('./routes/user.route.js');
 // Application express
 const app = express();
 
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/christophelbr.github.io/P6-OC-Frontend'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/christophelbr.github.io/P6-OC-Frontend/index.html'));
+});
+
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
+
 // Connexion à MongoDB
 mongoose.connect(`mongodb+srv://${mongooseLogin.login}:${mongooseLogin.password}@${mongooseLogin.dbUrl}?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
