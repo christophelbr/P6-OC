@@ -35,8 +35,6 @@ exports.signup = (req, res, next) => {
         return res.status(500).json({ error: 'Votre mot de passe doit comprter au moins 10 caractère, une majuscule, une miniscule, un chiffre' });
     }
 }
-
-
 //Permet aux utilisateurs existants de se loguer
 exports.login = (req, res, next) => {
     //Trouver le user correspondant à l'email
