@@ -2,7 +2,7 @@
 const Sauce = require('../models/sauce.model.js');
 
 // Déclaration regex pour sécurisation du formulaire
-const regex = /[^a-zA-Z\d]/g;
+const regex = /[^a-zA-Z \d]/g;
 
 // Création des sauces
 exports.createSauce = (req, res, next) => {
