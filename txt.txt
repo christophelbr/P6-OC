@@ -1,3 +1,0 @@
-backend 
-interroger le backend sur postman
-front avec git git page basehref = /
